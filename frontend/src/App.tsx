@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+const API_BASE = import.meta.env.VITE_API_URL;
 
 interface Product {
   id: string;
@@ -53,7 +54,7 @@ export default function App() {
       setError(null);
       
       const activeCursor = cursorHistory[currentPageIndex];
-      let url = `/api/products?limit=${limit}`;
+      let url = `${API_BASE}/products?limit=${limit}`;
       
       if (category !== 'all') {
         url += `&category=${encodeURIComponent(category)}`;
